@@ -1,0 +1,80 @@
+.header {
+    padding: 30px; /* some padding */
+    text-align: center; /* center the text */
+    background: grey; /* green background */
+    color: white; /* white text color */
+  }
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 40px;
+  }
+  /* Style the top navigation bar */
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  /* Right-aligned link */
+  .navbar a.right {
+    float: right;
+  }
+  
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .draggable {
+    cursor: move;
+    user-select: none;
+}
+.placeholder {
+    background-color: #edf2f7;
+    border: 2px dashed #cbd5e0;
+}
+.clone-list {
+    border-top: 1px solid #ccc;
+}
+.clone-table {
+    border-collapse: collapse;
+    border: none;
+}
+.clone-table th, .clone-table td {
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 0.5rem;
+}
+.dragging {
+    background: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 999;
+}
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: black; /* green background */
+  }
+  table{
+    width: 100%;
+  }
+  th,td {
+    color: white; /* white text color */
+    border: 1px solid white;
+    text-align: center;
+  }
+  th {
+    padding: 10px;
+  }
+  td {
+    padding: 5px;
+  }
