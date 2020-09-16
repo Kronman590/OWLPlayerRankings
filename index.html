@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="redips-drag-source.js"></script>
 </head>
-<body onhashchange="changeTable()">
+<body onhashchange="changeTable()" onload="REDIPS.drag.init()">
     <div class="header">
         <h1>OWL Individual Power Ranker</h1>
         <p>Do you think you know who the top OWL player is in their position?</p>
@@ -16,53 +17,55 @@
         <a href="#Damage">Damage</a>
         <a href="#Supports">Supports</a>
     </div>
-    <table id="tanksTable">
-        <tr>
-          <th>Overall Tank</th>
-          <th>Reinhardt</th>
-          <th>Orisa</th>
-          <th>Winston</th>
-          <th>Wrecking Ball</th>
-          <th>D.Va</th>
-          <th>Sigma</th>
-          <th>Roadhog</th>
-          <th>Zarya</th>
-        </tr>
-    </table>
-    <table id="dpsTable">
-        <tr>
-          <th>Overall DPS</th>
-          <th>Ashe</th>
-          <th>Widowmaker</th>
-          <th>Tracer</th>
-          <th>Sombra</th>
-          <th>McCree</th>
-          <th>Reaper</th>
-          <th>Genji</th>
-          <th>Pharah</th>
-          <th>Hanzo</th>
-          <th>Mei</th>
-          <th>Echo</th>
-          <th>Doomfist</th>
-          <th>Soldier: 76</th>
-          <th>Symmetra</th>
-          <th>Junkrat</th>
-          <th>Torbjörn</th>
-          <th>Bastion</th>
-        </tr>
-    </table>
-    <table id="supportTable">
-        <tr>
-          <th>Overall Support</th>
-          <th>Lucio</th>
-          <th>Mercy</th>
-          <th>Moira</th>
-          <th>Baptiste</th>
-          <th>Ana</th>
-          <th>Zenyatta</th>
-          <th>Brigitte</th>
-        </tr>
-    </table>
+    <div id="redips-drag">
+        <table id="tanksTable">
+            <tr>
+            <th class="redips-mark">Overall Tank</th>
+            <th class="redips-mark">Reinhardt</th>
+            <th class="redips-mark">Orisa</th>
+            <th class="redips-mark">Winston</th>
+            <th class="redips-mark">Wrecking Ball</th>
+            <th class="redips-mark">D.Va</th>
+            <th class="redips-mark">Sigma</th>
+            <th class="redips-mark">Roadhog</th>
+            <th class="redips-mark">Zarya</th>
+            </tr>
+        </table>
+        <table id="dpsTable">
+            <tr>
+            <th class="redips-mark">Overall DPS</th>
+            <th class="redips-mark">Ashe</th>
+            <th class="redips-mark">Widowmaker</th>
+            <th class="redips-mark">Tracer</th>
+            <th class="redips-mark">Sombra</th>
+            <th class="redips-mark">McCree</th>
+            <th class="redips-mark">Reaper</th>
+            <th class="redips-mark">Genji</th>
+            <th class="redips-mark">Pharah</th>
+            <th class="redips-mark">Hanzo</th>
+            <th class="redips-mark">Mei</th>
+            <th class="redips-mark">Echo</th>
+            <th class="redips-mark">Doomfist</th>
+            <th class="redips-mark">Soldier:76</th>
+            <th class="redips-mark">Symmetra</th>
+            <th class="redips-mark">Junkrat</th>
+            <th class="redips-mark">Torbjörn</th>
+            <th class="redips-mark">Bastion</th>
+            </tr>
+        </table>
+        <table id="supportTable">
+            <tr>
+            <th class="redips-mark">Overall Support</th>
+            <th class="redips-mark">Lucio</th>
+            <th class="redips-mark">Mercy</th>
+            <th class="redips-mark">Moira</th>
+            <th class="redips-mark">Baptiste</th>
+            <th class="redips-mark">Ana</th>
+            <th class="redips-mark">Zenyatta</th>
+            <th class="redips-mark">Brigitte</th>
+            </tr>
+        </table>
+    </div>
     <script type="text/javascript" src="csv.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>

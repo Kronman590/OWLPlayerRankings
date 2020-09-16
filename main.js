@@ -7,6 +7,7 @@ var supportHeroes = new Array();
 rowToArray(document.getElementById("tanksTable").rows[0].cells,tankHeroes);
 rowToArray(document.getElementById("dpsTable").rows[0].cells,dpsHeroes);
 rowToArray(document.getElementById("supportTable").rows[0].cells,supportHeroes);
+REDIPS.drag.dropMode = 'switching';
 for (var i = 0; i < tankHeroes.length; i++) {
     tankPlayers.set(tankHeroes[i], new Set());
 }
@@ -21,31 +22,31 @@ for (var i = 0; i < csv.length; i++) {
     checkRole(csv[i],dpsHeroes,dpsPlayers);
     checkRole(csv[i],supportHeroes,supportPlayers);
 }
-for (var j = 0; j < tankPlayers.get("Overall Tank").size; j++) {
+for (var j = 0; j < tankPlayers.get(tankHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < tankHeroes.length; i++) {
         if (tankPlayers.get(tankHeroes[i]).size > j)
-            row.push(Array.from(tankPlayers.get(tankHeroes[i]))[j]);
+            row.push(Array.from(tankPlayers.get(tankHeroes[i]))[j]+"@"+tankHeroes[i]);
         else 
             row.push("-");
     }
     addRow(document.getElementById("tanksTable"),row);
 }
-for (var j = 0; j < dpsPlayers.get("Overall DPS").size; j++) {
+for (var j = 0; j < dpsPlayers.get(dpsHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < dpsHeroes.length; i++) {
         if (dpsPlayers.get(dpsHeroes[i]).size > j)
-            row.push(Array.from(dpsPlayers.get(dpsHeroes[i]))[j]);
+            row.push(Array.from(dpsPlayers.get(dpsHeroes[i]))[j]+"@"+dpsHeroes[i]);
         else 
             row.push("-");
     }
     addRow(document.getElementById("dpsTable"),row);
 }
-for (var j = 0; j < supportPlayers.get("Overall Support").size; j++) {
+for (var j = 0; j < supportPlayers.get(supportHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < supportHeroes.length; i++) {
         if (supportPlayers.get(supportHeroes[i]).size > j)
-            row.push(Array.from(supportPlayers.get(supportHeroes[i]))[j]);
+            row.push(Array.from(supportPlayers.get(supportHeroes[i]))[j]+"@"+supportHeroes[i]);
         else 
             row.push("-");
     }
@@ -70,7 +71,7 @@ function changeTable() {
         document.getElementById("tanksTable").style.display = "none";
     }
 }
-function addRow(table,vals) {//value,backColor,fontColor) {
+function addRow(table,vals) {
     var row = table.insertRow(-1);
     for (var i=0; i<vals.length; i++) {
         var cell = row.insertCell(i);
@@ -80,13 +81,14 @@ function addRow(table,vals) {//value,backColor,fontColor) {
             cell.style.color = "white";
         } else {
             var val = vals[i].split("@");
-            cell.innerHTML = val[0];
+            val[2] = val[2].replace(" ","_");
+            cell.innerHTML = "<div id=" + val[0]+val[2] + " class=\"redips-drag\">"+val[0]+"</div>";
             var colors = getTeamColors(val[1]);
-            cell.style.backgroundColor = colors[0];
-            cell.style.color = colors[1];
+            document.getElementById(val[0]+val[2]).style.backgroundColor = colors[0];
+            document.getElementById(val[0]+val[2]).style.color = colors[1];
         }
         cell.style.fontWeight = "bold";
-        cell.classList.add("draggable");
+        //cell.classList.add("draggable");
     }
 }
 function rowToArray(cells,array) {
