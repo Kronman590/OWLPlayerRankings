@@ -62,9 +62,25 @@
 }
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background: black; /* green background */
+    background: #131313; /* green background */
   }
-  table{
+  .tankTable{
+    width: 11.1%;
+    float: left;
+  }
+  .supportTable{
+    width: 12.5%;
+    float: left;
+  }
+  .hitscanTable{
+    width: 11.1%;
+    float: left;
+  }
+  .projectileTable{
+    width: 10%;
+    float: left;
+  }
+  table {
     width: 100%;
   }
   th,td {
@@ -76,5 +92,5 @@
     padding: 10px;
   }
   td {
-    padding: 5px;
+    padding: 10px;
   }

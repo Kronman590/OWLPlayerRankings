@@ -5,68 +5,274 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" type="text/css">
-<script type="text/javascript" src="redips-drag-source.js"></script>
+<script type="text/javascript" src="redips-drag-min.js"></script>
 </head>
 <body onhashchange="changeTable()" onload="REDIPS.drag.init()">
     <div class="header">
         <h1>OWL Individual Power Ranker</h1>
-        <p>Do you think you know who the top OWL player is in their position?</p>
+        <p>Do you think you know who the top OWL player is in their position? Click the player to move them up and down the rankings, and click the category to minimize it.</p>
+        <p>Hero pools based on 2020 OWL S3 data. If you spot a mistake/think a player should be in a certain hero's pool, let me know <a href=https://twitter.com/Kronman590>@Kronman590</a>!</p>
     </div>
     <div class="navbar">
         <a href="#Tanks">Tanks</a>
-        <a href="#Damage">Damage</a>
+        <a href="#Hitscan">Hitscan</a>
+        <a href="#Projectile">Projectile</a>
         <a href="#Supports">Supports</a>
     </div>
-    <div id="redips-drag">
-        <table id="tanksTable">
+    <div id="dragOT" class="tankTable">
+        <table id="Overall_Tank" class="tanksTable">
             <tr>
-            <th class="redips-mark">Overall Tank</th>
-            <th class="redips-mark">Reinhardt</th>
-            <th class="redips-mark">Orisa</th>
-            <th class="redips-mark">Winston</th>
-            <th class="redips-mark">Wrecking Ball</th>
-            <th class="redips-mark">D.Va</th>
-            <th class="redips-mark">Sigma</th>
-            <th class="redips-mark">Roadhog</th>
-            <th class="redips-mark">Zarya</th>
+                <th class="redips-mark" onclick="hideTable('Overall_Tank')">Overall Tank</th>
+            </tr>
+        </table>    
+    </div>
+    <div id="dragRn" class="tankTable">
+        <table id="Reinhardt" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Reinhardt')">Reinhardt</th>
+            </tr>
+        </table> 
+    </div>
+    <div id="dragOr" class="tankTable">  
+        <table id="Orisa" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Orisa')">Orisa</th>
+            </tr>
+        </table>  
+    </div>
+    <div id="dragWn" class="tankTable">
+        <table id="Winston" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Winston')">Winston</th>
+            </tr>
+        </table> 
+    </div>
+    <div id="dragWB" class="tankTable">   
+        <table id="Wrecking_Ball" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Wrecking_Ball')">Wrecking Ball</th>
+            </tr>
+        </table>  
+    </div>
+    <div id="dragDv" class="tankTable">  
+        <table id="D.Va" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('D.Va')">D.Va</th>
+            </tr>
+        </table> 
+    </div>
+    <div id="dragSg" class="tankTable">   
+        <table id="Sigma" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Sigma')">Sigma</th>
+            </tr>
+        </table>  
+    </div>
+    <div id="dragRh" class="tankTable">  
+        <table id="Roadhog" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Roadhog')">Roadhog</th>
+            </tr>
+        </table>  
+    </div>
+    <div id="dragZr" class="tankTable">  
+        <table id="Zarya" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Zarya')">Zarya</th>
             </tr>
         </table>
-        <table id="dpsTable">
+    </div>
+    <div id="dragOD" class="hitscanTable">
+        <table id="Overall_Hitscan" class="hitscansTable">
             <tr>
-            <th class="redips-mark">Overall DPS</th>
-            <th class="redips-mark">Ashe</th>
-            <th class="redips-mark">Widowmaker</th>
-            <th class="redips-mark">Tracer</th>
-            <th class="redips-mark">Sombra</th>
-            <th class="redips-mark">McCree</th>
-            <th class="redips-mark">Reaper</th>
-            <th class="redips-mark">Genji</th>
-            <th class="redips-mark">Pharah</th>
-            <th class="redips-mark">Hanzo</th>
-            <th class="redips-mark">Mei</th>
-            <th class="redips-mark">Echo</th>
-            <th class="redips-mark">Doomfist</th>
-            <th class="redips-mark">Soldier:76</th>
-            <th class="redips-mark">Symmetra</th>
-            <th class="redips-mark">Junkrat</th>
-            <th class="redips-mark">Torbjörn</th>
-            <th class="redips-mark">Bastion</th>
+                <th class="redips-mark" onclick="hideTable('Overall_Hiscan')">Overall Hiscan</th>
             </tr>
         </table>
-        <table id="supportTable">
+    </div>
+    <div id="dragAs" class="hitscanTable">
+        <table id="Ashe" class="hitscansTable">
             <tr>
-            <th class="redips-mark">Overall Support</th>
-            <th class="redips-mark">Lucio</th>
-            <th class="redips-mark">Mercy</th>
-            <th class="redips-mark">Moira</th>
-            <th class="redips-mark">Baptiste</th>
-            <th class="redips-mark">Ana</th>
-            <th class="redips-mark">Zenyatta</th>
-            <th class="redips-mark">Brigitte</th>
+                <th class="redips-mark" onclick="hideTable('Ashe')">Ashe</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragWd" class="hitscanTable">
+        <table id="Widowmaker" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Widowmaker')">Widowmaker</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragTc" class="hitscanTable">
+        <table id="Tracer" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Tracer')">Tracer</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragSb" class="hitscanTable">
+        <table id="Sombra" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Sombra')">Sombra</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragMc" class="hitscanTable">
+        <table id="McCree" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('McCree')">McCree</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragRp" class="hitscanTable">
+        <table id="Reaper" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Reaper')">Reaper</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragSl" class="hitscanTable">
+        <table id="Soldier:76" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Soldier:76')">Soldier:76</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragBs" class="hitscanTable">
+        <table id="Bastion" class="hitscansTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Bastion')">Bastion</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragOP" class="projectileTable">
+        <table id="Overall_Projectile" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Overall_Projectile')">Overall Projectile</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragGj" class="projectileTable">
+        <table id="Genji" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Genji')">Genji</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragPh" class="projectileTable">
+        <table id="Pharah" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Pharah')">Pharah</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragHz" class="projectileTable">
+        <table id="Hanzo" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Hanzo')">Hanzo</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragMi" class="projectileTable">
+        <table id="Mei" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Mei')">Mei</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragEc" class="projectileTable">
+        <table id="Echo" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Echo')">Echo</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragDm" class="projectileTable">
+        <table id="Doomfist" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Doomfist')">Doomfist</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragSm" class="projectileTable">
+        <table id="Symmetra" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Symmetra')">Symmetra</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragJk" class="projectileTable">
+        <table id="Junkrat" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Junkrat')">Junkrat</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragTb" class="projectileTable">
+        <table id="Torbjörn" class="projectilesTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Torbjörn')">Torbjörn</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragOS" class="supportTable">
+        <table id="Overall_Support" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Overall_Support')">Overall Support</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragLc" class="supportTable">
+        <table id="Lucio" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Lucio')">Lucio</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragMy" class="supportTable">
+        <table id="Mercy" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Mercy')">Mercy</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragMr" class="supportTable">
+        <table id="Moira" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Moira')">Moira</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragBp" class="supportTable">
+        <table id="Baptiste" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Baptiste')">Baptiste</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragAn" class="supportTable">
+        <table id="Ana" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Ana')">Ana</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragZn" class="supportTable">
+        <table id="Zenyatta" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Zenyatta')">Zenyatta</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragBg" class="supportTable">
+        <table id="Brigitte" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Brigitte')">Brigitte</th>
             </tr>
         </table>
     </div>
     <script type="text/javascript" src="csv.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="redips_script.js"></script>
 </body>
 </html>

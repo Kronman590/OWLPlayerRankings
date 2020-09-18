@@ -80,7 +80,7 @@ var csv = [["Ado","Flex DPS","Genji;Tracer;Mei;Brigitte","@Hangzhou_Spark","2020
 ["Halo","Main Support","Brigitte;Lucio;Baptiste;Mercy","@BostonUprising"],
 ["Hanbin","Off Tank","D.Va;Zarya;Sigma;Wrecking Ball;Orisa;Roadhog","@ParisEternal"],
 ["Happy","Hitscan","Widowmaker;McCree;Zarya;Ashe;Brigitte;Tracer;Hanzo;Sombra;Reaper;Soldier:76;Mei;Torbjörn;Doomfist;Bastion","@GZCharge","2020;2019"],
-["HarryHook","Flex Support","Mercy;Lucio;Soldier:76","@DallasFuel"],
+//["HarryHook","Flex Support","Mercy;Lucio;Soldier:76","@DallasFuel"],
 ["Hawk","Off Tank","D.Va;Zarya;Sigma","@ATLReign"],
 ["Heesu","Hitscan","Sombra;Reaper;Ashe;Tracer;Symmetra;Widowmaker;McCree;Hanzo","@Fusion"],
 ["Highly","Flex Support","Baptiste;Ana;Moira;Zenyatta;Brigitte","@Spitfire"],
