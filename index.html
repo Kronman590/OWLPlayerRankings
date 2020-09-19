@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="redips-drag-min.js"></script>
 </head>
 <body onhashchange="changeTable()" onload="REDIPS.drag.init()">
@@ -19,6 +20,7 @@
         <a href="#Projectile">Projectile</a>
         <a href="#Supports">Supports</a>
     </div>
+    <div class="tankPage">
     <div id="dragOT" class="tankTable">
         <table id="Overall_Tank" class="tanksTable">
             <tr>
@@ -82,10 +84,12 @@
             </tr>
         </table>
     </div>
+    </div>
+    <div class="dpsPage">
     <div id="dragOD" class="hitscanTable">
         <table id="Overall_Hitscan" class="hitscansTable">
             <tr>
-                <th class="redips-mark" onclick="hideTable('Overall_Hiscan')">Overall Hiscan</th>
+                <th class="redips-mark" onclick="hideTable('Overall_Hitscan')">Overall Hitscan</th>
             </tr>
         </table>
     </div>
@@ -145,10 +149,12 @@
             </tr>
         </table>
     </div>
+    </div>
+    <div class="projPage">
     <div id="dragOP" class="projectileTable">
         <table id="Overall_Projectile" class="projectilesTable">
             <tr>
-                <th class="redips-mark" onclick="hideTable('Overall_Projectile')">Overall Projectile</th>
+                <th class="redips-mark" onclick="hideTable('Overall_Projectile')" style="font-size:95%;">Overall Projectile</th>
             </tr>
         </table>
     </div>
@@ -215,6 +221,8 @@
             </tr>
         </table>
     </div>
+    </div>
+    <div class="supportPage">
     <div id="dragOS" class="supportTable">
         <table id="Overall_Support" class="supportsTable">
             <tr>
@@ -271,6 +279,7 @@
             </tr>
         </table>
     </div>
+    </div>  
     <script type="text/javascript" src="csv.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="redips_script.js"></script>

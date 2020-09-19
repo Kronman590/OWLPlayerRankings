@@ -1,19 +1,20 @@
-var tankWidth = document.getElementsByClassName("tanksTable")[0].style.width;
 var tankPlayers = new Map();
 var tankHeroes = new Array();
 var tankTables = document.getElementsByClassName("tanksTable");
-var hitscanWidth = document.getElementsByClassName("hitscansTable")[0].style.width;
 var hitscanPlayers = new Map();
 var hitscanHeroes = new Array();
 var hitscanTables = document.getElementsByClassName("hitscansTable");
-var projectileWidth = document.getElementsByClassName("projectilesTable")[0].style.width;
 var projectilePlayers = new Map();
 var projectileHeroes = new Array();
 var projectileTables = document.getElementsByClassName("projectilesTable");
-var supportWidth = document.getElementsByClassName("supportsTable")[0].style.width;
 var supportPlayers = new Map();
 var supportHeroes = new Array();
 var supportTables = document.getElementsByClassName("supportsTable");
+
+document.getElementsByClassName("tankPage")[0].style.width = Math.max((window.outerWidth-30),1185)+"px";
+document.getElementsByClassName("dpsPage")[0].style.width = Math.max((window.outerWidth-30),1185)+"px";
+document.getElementsByClassName("projPage")[0].style.width = Math.max((window.outerWidth-30),1300)+"px";
+document.getElementsByClassName("supportPage")[0].style.width = Math.max((window.outerWidth-30),1000)+"px";
 
 rowToArray(tankTables,tankHeroes);
 rowToArray(hitscanTables, hitscanHeroes);
@@ -78,15 +79,22 @@ for (var j = 0; j < projectilePlayers.get(projectileHeroes[0]).size; j++) {
     }
 }
 
-
-for (tank of tankTables)
+for (tank of tankTables) {
+    hideTable(tank.id);
     tank.style.display = "none";
-for (hitscan of hitscanTables)
+}
+for (hitscan of hitscanTables) {
+    hideTable(hitscan.id);
     hitscan.style.display = "none";
-for (sup of supportTables)
+}
+for (sup of supportTables) {
+    hideTable(sup.id);
     sup.style.display = "none";
-for (proj of projectileTables)
+}
+for (proj of projectileTables) {
+    hideTable(proj.id);
     proj.style.display = "none";
+}
 changeTable();
 function changeTable() {
     if (location.hash == "#Tanks") {
@@ -163,18 +171,15 @@ function rowToArray(cells,array,check) {
 function hideTable(id) {
     var hide = document.getElementById(id).rows;
     var state = "collapse";
-    console.log(hide[1])
+    var carot = "downcarot";
+    var old_carot = "upcarot";
     if (hide[1].style.visibility == "collapse") {
         state = "visible";
-        if (tankHeroes.includes(id.replace("_"," ")))
-            width = tankWidth;
-        else if (hitscanHeroes.includes(id.replace("_"," ")))
-            width = hitscanWidth;
-        else if (projectileHeroes.includes(id.replace("_"," ")))
-            width = projectileWidth;
-        else
-            width = supportWidth;
+        carot = "upcarot";
+        old_carot = "downcarot";
     }
+    hide[0].cells[0].classList.remove(old_carot);
+    hide[0].cells[0].classList.add(carot);
     for (var i=1; i<hide.length; i++) {
         hide[i].style.visibility  = state;
     }
@@ -194,7 +199,7 @@ function getTeamColors(team) {
         case "BostonUprising":
             return ["#174B97","#F2DF00"];
         case "ChengduHunters":
-            return ["#ffb400","#000000"];
+            return ["#ffb400","#5e3726"];
         case "DallasFuel":
             return ["#0C2340","#858585"];
         case "FLMayhem":

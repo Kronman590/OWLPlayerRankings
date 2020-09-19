@@ -7,11 +7,13 @@
   /* Increase the font size of the <h1> element */
   .header h1 {
     font-size: 40px;
+    white-space: nowrap;
   }
   /* Style the top navigation bar */
   .navbar {
     overflow: hidden;
     background-color: #333;
+    white-space: nowrap;
   }
   
   /* Style the navigation bar links */
@@ -80,6 +82,19 @@
     width: 10%;
     float: left;
   }
+  .redips-drag {
+    width: initial;
+  }
+  .redips-mark:after{
+    font-family: "FontAwesome";
+    padding-left: 10px;
+  }
+  .upcarot:after {
+    content: "\f0d8";
+  }
+  .downcarot:after {
+    content: "\f0d7";
+  }
   table {
     width: 100%;
   }
@@ -89,7 +104,8 @@
     text-align: center;
   }
   th {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   td {
     padding: 10px;
