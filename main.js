@@ -11,10 +11,10 @@ var supportPlayers = new Map();
 var supportHeroes = new Array();
 var supportTables = document.getElementsByClassName("supportsTable");
 
-document.getElementsByClassName("tankPage")[0].style.width = Math.max((window.outerWidth-30),1185)+"px";
+document.getElementsByClassName("tankPage")[0].style.width = Math.max((window.outerWidth-30),1300)+"px";
 document.getElementsByClassName("dpsPage")[0].style.width = Math.max((window.outerWidth-30),1185)+"px";
 document.getElementsByClassName("projPage")[0].style.width = Math.max((window.outerWidth-30),1300)+"px";
-document.getElementsByClassName("supportPage")[0].style.width = Math.max((window.outerWidth-30),1000)+"px";
+document.getElementsByClassName("supportPage")[0].style.width = Math.max((window.outerWidth-30),1185)+"px";
 
 rowToArray(tankTables,tankHeroes);
 rowToArray(hitscanTables, hitscanHeroes);
@@ -161,7 +161,7 @@ function addOneRow(table,vals) {
     }
     cell.style.fontWeight = "bold";
 }
-function rowToArray(cells,array,check) {
+function rowToArray(cells,array) {
     for (var i=0; i<cells.length; i++) {
         array.push(cells[i].rows[0].cells[0].innerHTML);
             //array.push(cells[i].innerHTML);
