@@ -40,7 +40,8 @@ for (var i = 0; i < csv.length; i++) {
     checkRoleDPS(csv[i],projectileHeroes,projectilePlayers);
 }
 
-for (var j = 0; j <= tankPlayers.get(tankHeroes[0]).size; j++) {
+var tankTotal = Math.max(tankPlayers.get(tankHeroes[0]).size,tankPlayers.get(tankHeroes[1]).size);
+for (var j = 0; j <= tankTotal; j++) {
     var row = new Array;
     for (var i = 0; i < tankHeroes.length; i++) {
         if (tankPlayers.get(tankHeroes[i]).size > j-1 && j > 0) {
@@ -60,7 +61,8 @@ for (var j = 0; j <= hitscanPlayers.get(hitscanHeroes[0]).size; j++) {
             addOneRow(hitscanTables[i],"-");
     }
 }
-for (var j = 0; j <= supportPlayers.get(supportHeroes[0]).size; j++) {
+var supportTotal = Math.max(supportPlayers.get(supportHeroes[0]).size,supportPlayers.get(supportHeroes[1]).size);
+for (var j = 0; j <= supportTotal; j++) {
     var row = new Array;
     for (var i = 0; i < supportHeroes.length; i++) {
         if (supportPlayers.get(supportHeroes[i]).size > j-1 && j > 0)
