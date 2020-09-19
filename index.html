@@ -12,6 +12,7 @@
     <div class="header">
         <h1>OWL Individual Power Ranker</h1>
         <p>Do you think you know who the top OWL player is in their position? Click the player to move them up and down the rankings, and click the category to minimize it.</p>
+        <p>Unfortunately, the page does not save your rankings as of now. Please make sure you take screenshots if you'd like to share your rankings!</p>
         <p>Hero pools based on 2020 OWL S3 data. If you spot a mistake/think a player should be in a certain hero's pool, let me know <a href=https://twitter.com/Kronman590>@Kronman590</a>!</p>
     </div>
     <div class="navbar">
@@ -21,10 +22,17 @@
         <a href="#Supports">Supports</a>
     </div>
     <div class="tankPage">
-    <div id="dragOT" class="tankTable">
-        <table id="Overall_Tank" class="tanksTable">
+    <div id="dragOMT" class="tankTable">
+        <table id="Overall_MT" class="tanksTable">
             <tr>
-                <th class="redips-mark" onclick="hideTable('Overall_Tank')">Overall Tank</th>
+                <th class="redips-mark" onclick="hideTable('Overall_MT')">Overall MT</th>
+            </tr>
+        </table>    
+    </div>
+    <div id="dragOOT" class="tankTable">
+        <table id="Overall_OffT" class="tanksTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Overall_OffT')">Overall OffT</th>
             </tr>
         </table>    
     </div>
@@ -223,10 +231,17 @@
     </div>
     </div>
     <div class="supportPage">
-    <div id="dragOS" class="supportTable">
-        <table id="Overall_Support" class="supportsTable">
+    <div id="dragOMS" class="supportTable">
+        <table id="Overall_MainSprt" class="supportsTable">
             <tr>
-                <th class="redips-mark" onclick="hideTable('Overall_Support')">Overall Support</th>
+                <th class="redips-mark" onclick="hideTable('Overall_MainSprt')">Overall MainSprt</th>
+            </tr>
+        </table>
+    </div>
+    <div id="dragOFS" class="supportTable">
+        <table id="Overall_FlexSprt" class="supportsTable">
+            <tr>
+                <th class="redips-mark" onclick="hideTable('Overall_FlexSprt')">Overall FlexSprt</th>
             </tr>
         </table>
     </div>

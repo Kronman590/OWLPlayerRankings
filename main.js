@@ -34,46 +34,46 @@ for (var i = 0; i < projectileHeroes.length; i++) {
     projectilePlayers.set(projectileHeroes[i], new Set());
 }
 for (var i = 0; i < csv.length; i++) {
-    checkRole(csv[i],tankHeroes,tankPlayers);
-    checkRole(csv[i],hitscanHeroes,hitscanPlayers);
-    checkRole(csv[i],supportHeroes,supportPlayers);
-    checkRole(csv[i],projectileHeroes,projectilePlayers);
+    checkRole(csv[i],tankHeroes,tankPlayers,tankcats);
+    checkRole(csv[i],supportHeroes,supportPlayers,supportcats);
+    checkRoleDPS(csv[i],hitscanHeroes,hitscanPlayers);
+    checkRoleDPS(csv[i],projectileHeroes,projectilePlayers);
 }
 
-for (var j = 0; j < tankPlayers.get(tankHeroes[0]).size; j++) {
+for (var j = 0; j <= tankPlayers.get(tankHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < tankHeroes.length; i++) {
-        if (tankPlayers.get(tankHeroes[i]).size > j) {
+        if (tankPlayers.get(tankHeroes[i]).size > j-1 && j > 0) {
             //row.push(Array.from(tankPlayers.get(tankHeroes[i]))[j]+"@"+tankHeroes[i]);
-            addOneRow(tankTables[i],Array.from(tankPlayers.get(tankHeroes[i]))[j]+"@"+tankHeroes[i]);
+            addOneRow(tankTables[i],Array.from(tankPlayers.get(tankHeroes[i]))[j-1]+"@"+tankHeroes[i]);
         } else 
             addOneRow(tankTables[i],"-");
     }
     //addRow(document.getElementById("tanksTable"),row);
 }
-for (var j = 0; j < hitscanPlayers.get(hitscanHeroes[0]).size; j++) {
+for (var j = 0; j <= hitscanPlayers.get(hitscanHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < hitscanHeroes.length; i++) {
-        if (hitscanPlayers.get(hitscanHeroes[i]).size > j)
-            addOneRow(hitscanTables[i],Array.from(hitscanPlayers.get(hitscanHeroes[i]))[j]+"@"+hitscanHeroes[i]);
+        if (hitscanPlayers.get(hitscanHeroes[i]).size > j-1 && j > 0)
+            addOneRow(hitscanTables[i],Array.from(hitscanPlayers.get(hitscanHeroes[i]))[j-1]+"@"+hitscanHeroes[i]);
         else 
             addOneRow(hitscanTables[i],"-");
     }
 }
-for (var j = 0; j < supportPlayers.get(supportHeroes[0]).size; j++) {
+for (var j = 0; j <= supportPlayers.get(supportHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < supportHeroes.length; i++) {
-        if (supportPlayers.get(supportHeroes[i]).size > j)
-            addOneRow(supportTables[i],Array.from(supportPlayers.get(supportHeroes[i]))[j]+"@"+supportHeroes[i]);
+        if (supportPlayers.get(supportHeroes[i]).size > j-1 && j > 0)
+            addOneRow(supportTables[i],Array.from(supportPlayers.get(supportHeroes[i]))[j-1]+"@"+supportHeroes[i]);
         else 
             addOneRow(supportTables[i],"-");
     }
 }
-for (var j = 0; j < projectilePlayers.get(projectileHeroes[0]).size; j++) {
+for (var j = 0; j <= projectilePlayers.get(projectileHeroes[0]).size; j++) {
     var row = new Array;
     for (var i = 0; i < projectileHeroes.length; i++) {
-        if (projectilePlayers.get(projectileHeroes[i]).size > j)
-            addOneRow(projectileTables[i],Array.from(projectilePlayers.get(projectileHeroes[i]))[j]+"@"+projectileHeroes[i]);
+        if (projectilePlayers.get(projectileHeroes[i]).size > j-1 && j > 0)
+            addOneRow(projectileTables[i],Array.from(projectilePlayers.get(projectileHeroes[i]))[j-1]+"@"+projectileHeroes[i]);
         else 
             addOneRow(projectileTables[i],"-");
     }
@@ -125,33 +125,32 @@ function setVisibility(tables1,tables2,value1,value2) {
     for (y of tables2) 
         y.style.float = value2;
 }
-function addRow(table,vals) {
-    var row = table.insertRow(-1);
-    for (var i=0; i<vals.length; i++) {
-        var cell = row.insertCell(i);
-        if (vals[i] == "-") {
-            cell.innerHTML = " -- ";
-            cell.style.backgroundColor = "black";
-            cell.style.color = "white";
-        } else {
-            var val = vals[i].split("@");
-            val[2] = val[2].replace(" ","_");
-            cell.innerHTML = "<div id=" + val[0]+val[2] + " class='redips-drag " + val[2] + "'>"+val[0]+"</div>";
-            var colors = getTeamColors(val[1]);
-            document.getElementById(val[0]+val[2]).style.backgroundColor = colors[0];
-            document.getElementById(val[0]+val[2]).style.color = colors[1];
-        }
-        cell.style.fontWeight = "bold";
-        //cell.classList.add("draggable");
-    }
-}
+// function addRow(table,vals) {
+//     var row = table.insertRow(-1);
+//     for (var i=0; i<vals.length; i++) {
+//         var cell = row.insertCell(i);
+//         if (vals[i] == "-") {
+//             cell.innerHTML = " -- ";
+//             cell.style.backgroundColor = "black";
+//             cell.style.color = "white";
+//         } else {
+//             var val = vals[i].split("@");
+//             val[2] = val[2].replace(" ","_");
+//             cell.innerHTML = "<div id=" + val[0]+val[2] + " class='redips-drag " + val[2] + "'>"+val[0]+"</div>";
+//             var colors = getTeamColors(val[1]);
+//             document.getElementById(val[0]+val[2]).style.backgroundColor = colors[0];
+//             document.getElementById(val[0]+val[2]).style.color = colors[1];
+//         }
+//         cell.style.fontWeight = "bold";
+//         //cell.classList.add("draggable");
+//     }
+// }
 function addOneRow(table,vals) {
     var row = table.insertRow(-1);
     var cell = row.insertCell(0);
     if (vals == "-") {
-        cell.innerHTML = " -- ";
-        cell.style.backgroundColor = "black";
-        cell.style.color = "white";
+        cell.innerHTML = "<div class='redips-drag'>---------</div>";
+        cell.style.color = "grey";
     } else {
         var val = vals.split("@");
         val[2] = val[2].replace(" ","_");
@@ -184,7 +183,18 @@ function hideTable(id) {
         hide[i].style.visibility  = state;
     }
 }
-function checkRole(player,heroesList,playersList) {
+function checkRole(player,heroesList,playersList,categories) {
+    for (var i=2; i<heroesList.length; i++) {
+        if (player[2].includes(heroesList[i])) {
+            playersList.get(heroesList[i]).add(player[0] + player[3]);
+            if (categories[0].includes(heroesList[i]))
+                playersList.get(heroesList[0]).add(player[0] + player[3]);
+            else if (categories[1].includes(heroesList[i]))
+                playersList.get(heroesList[1]).add(player[0] + player[3]);
+        }
+    }
+}
+function checkRoleDPS(player,heroesList,playersList) {
     for (var i=1; i<heroesList.length; i++) {
         if (player[2].includes(heroesList[i])) {
             playersList.get(heroesList[i]).add(player[0] + player[3]);

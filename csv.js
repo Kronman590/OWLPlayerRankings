@@ -1,3 +1,9 @@
+var maintanks = "Reinhardt,Orisa,Winston";
+var offtanks = "D.Va,Sigma,Roadhog,Zarya";
+var mainsupport = "Mercy,Lucio";
+var flexsupport = "Ana,Zenyatta";
+var tankcats = [maintanks,offtanks];
+var supportcats = [mainsupport,flexsupport];
 var csv = [["Ado","Flex DPS","Genji;Tracer;Mei;Brigitte","@Hangzhou_Spark","2020;2019;2018"],
 ["Adora","Flex DPS","Tracer;Hanzo;Brigitte;Mei;Reaper;Echo;Genji;Sombra;Torbjörn;Junkrat;Pharah","@Hangzhou_Spark","2020;2019"],
 ["Agilities","Projectile","Genji;Mei;Doomfist;Echo;Roadhog;Junkrat;Pharah","@TorontoDefiant"],
@@ -160,7 +166,7 @@ var csv = [["Ado","Flex DPS","Genji;Tracer;Mei;Brigitte","@Hangzhou_Spark","2020
 ["Rio","Main Tank","Winston;Reinhardt;Orisa;Wrecking Ball;Sigma","@GZCharge","2020;2019"],
 ["rOar","Main Tank","Winston;Reinhardt;Orisa;Wrecking Ball","@WashJustice"],
 ["RoKy","Main Support","Lucio;Mercy;Baptiste","@TorontoDefiant"],
-["Roolf","Flex Support","Daptiste;Moira;Zenyatta;Ana","@VancouverTitans"],
+["Roolf","Flex Support","Baptiste;Moira;Zenyatta;Ana","@VancouverTitans"],
 ["SADO","Main Tank","Winston;Reinhardt;Orisa;Roadhog;Wrecking Ball","@Fusion"],
 ["Saebyeolbe","Hitscan","Tracer;Sombra;Widowmaker;McCree;Ashe;Reaper;Soldier:76","@NYXL"],
 ["SanGuiNar","Main Support","Lucio;Mercy;Brigitte;Zenyatta;Baptiste","@Spitfire"],

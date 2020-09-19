@@ -37,41 +37,16 @@
     color: black;
   }
   
-  .draggable {
-    cursor: move;
-    user-select: none;
-}
-.placeholder {
-    background-color: #edf2f7;
-    border: 2px dashed #cbd5e0;
-}
-.clone-list {
-    border-top: 1px solid #ccc;
-}
-.clone-table {
-    border-collapse: collapse;
-    border: none;
-}
-.clone-table th, .clone-table td {
-    border: 1px solid #ccc;
-    border-top: none;
-    padding: 0.5rem;
-}
-.dragging {
-    background: #fff;
-    border-top: 1px solid #ccc;
-    z-index: 999;
-}
   body {
     font-family: Arial, Helvetica, sans-serif;
     background: #131313; /* green background */
   }
   .tankTable{
-    width: 11.1%;
+    width: 10%;
     float: left;
   }
   .supportTable{
-    width: 12.5%;
+    width: 11.1%;
     float: left;
   }
   .hitscanTable{

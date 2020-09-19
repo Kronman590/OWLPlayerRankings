@@ -18,7 +18,8 @@ let redips = {},		// redips container
 // redips initialization
 redips.init = function () {
 	// initialization
-	rd.init('dragOT');
+	rd.init('dragOMT');
+	rd.init('dragOOT');
     rd.init('dragRn');
     rd.init('dragWn');
     rd.init('dragDv');
@@ -46,7 +47,8 @@ redips.init = function () {
     rd.init('dragJk');
     rd.init('dragTb');
     rd.init('dragBs');
-    rd.init('dragOS');
+    rd.init('dragOMS');
+    rd.init('dragOFS');
     rd.init('dragLc');
     rd.init('dragMy');
     rd.init('dragMr');
